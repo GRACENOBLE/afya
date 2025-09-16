@@ -140,15 +140,6 @@ fun BottomNavigationBar(navController: NavHostController){
     }
 }
 
-// Greeting and MyScreenContent are kept for potential use elsewhere or if you want to revert
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewMainScreenView() {
