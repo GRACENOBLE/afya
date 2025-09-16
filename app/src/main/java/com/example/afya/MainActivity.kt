@@ -149,11 +149,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Composable
-fun MyScreenContent(modifier: Modifier = Modifier) {
-    Greeting("Noble", modifier = modifier)
-}
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewMainScreenView() {
