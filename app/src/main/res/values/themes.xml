@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.Afya" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Afya.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/afya_primary</item>
+        <item name="postSplashScreenTheme">@style/Theme.Afya</item>
+    </style>
 </resources>
