@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Afya" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Afya" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="Theme.Afya.SplashScreen" parent="Theme.SplashScreen">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="windowSplashScreenBackground">@color/afya_primary</item>
         <item name="postSplashScreenTheme">@style/Theme.Afya</item>
     </style>

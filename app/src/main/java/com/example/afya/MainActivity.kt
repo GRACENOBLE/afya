@@ -27,15 +27,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.afya.ui.theme.AfyaTheme
 import com.example.afya.ui.home.HomeScreen
-import com.example.afya.ui.store.StoreScreen       // Updated import
-import com.example.afya.ui.publications.PublicationsScreen // Updated import
-import com.example.afya.ui.settings.SettingsScreen     // Updated import
+import com.example.afya.ui.store.StoreScreen
+import com.example.afya.ui.publications.PublicationsScreen
+import com.example.afya.ui.settings.SettingsScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        // installSplashScreen() // Uncomment if splash screen is implemented
         setContent {
             AfyaTheme {
                 MainScreenView()
@@ -76,7 +75,7 @@ fun AppNavigationHost(navController: NavHostController, modifier: Modifier = Mod
 }
 
 @Composable
-fun BottomNavigationBar(navController: NavHostController){
+fun BottomNavigationBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
@@ -113,14 +112,19 @@ fun BottomNavigationBar(navController: NavHostController){
             selected = currentRoute == "publications",
             onClick = {
                 if (currentRoute != "publications") {
-                    navController.navigate("publications"){
+                    navController.navigate("publications") {
                         popUpTo(navController.graph.startDestinationId) { saveState = true }
                         launchSingleTop = true
                         restoreState = true
                     }
                 }
             },
-            icon = { Icon(imageVector = Icons.Filled.FileOpen, contentDescription = "Publications") }, // Icon reverted
+            icon = {
+                Icon(
+                    imageVector = Icons.Filled.FileOpen,
+                    contentDescription = "Publications"
+                )
+            }, // Icon reverted
             label = { Text("Publications") }
         )
         NavigationBarItem(
