@@ -6,9 +6,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -22,12 +24,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.afya.ui.theme.AfyaCream
 import com.example.afya.ui.theme.AfyaDark
 import com.example.afya.R
+import com.example.afya.ui.theme.AfyaBlue
 import com.example.afya.ui.theme.AfyaWhite
 
 data class NavItem(
@@ -107,6 +111,7 @@ fun QuickHelp(onNavItemClick: (String) -> Unit) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
+                        .fillMaxWidth()
                         .clip(RoundedCornerShape(8.dp))
                         .background(
                             color = AfyaWhite,
@@ -123,8 +128,13 @@ fun QuickHelp(onNavItemClick: (String) -> Unit) {
                     Text(
                         text = navItem.title,
                         color = AfyaDark,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Normal
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Normal,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 2.dp)
+
                     )
                 }
             }

@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +31,8 @@ import com.example.afya.ui.home.HomeScreen
 import com.example.afya.ui.store.StoreScreen
 import com.example.afya.ui.publications.PublicationsScreen
 import com.example.afya.ui.settings.SettingsScreen
+import com.example.afya.ui.theme.AfyaBlue
+import com.example.afya.ui.theme.AfyaDark
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +95,10 @@ fun BottomNavigationBar(navController: NavHostController) {
                 }
             },
             icon = { Icon(imageVector = Icons.Default.Home, contentDescription = "Home") },
-            label = { Text("Home") }
+            label = { Text("Home") },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = AfyaBlue,
+            )
         )
         NavigationBarItem(
             selected = currentRoute == "store",
@@ -106,7 +112,10 @@ fun BottomNavigationBar(navController: NavHostController) {
                 }
             },
             icon = { Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "Store") },
-            label = { Text("Store") }
+            label = { Text("Store") },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = AfyaBlue,
+            )
         )
         NavigationBarItem(
             selected = currentRoute == "publications",
@@ -125,7 +134,10 @@ fun BottomNavigationBar(navController: NavHostController) {
                     contentDescription = "Publications"
                 )
             }, // Icon reverted
-            label = { Text("Publications") }
+            label = { Text("Publications") },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = AfyaBlue,
+            )
         )
         NavigationBarItem(
             selected = currentRoute == "settings",
@@ -139,7 +151,10 @@ fun BottomNavigationBar(navController: NavHostController) {
                 }
             },
             icon = { Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings") },
-            label = { Text("Settings") }
+            label = { Text("Settings") },
+            colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = AfyaBlue,
+            )
         )
     }
 }

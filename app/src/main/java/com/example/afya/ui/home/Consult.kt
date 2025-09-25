@@ -3,13 +3,16 @@ package com.example.afya.ui.home
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -80,29 +83,53 @@ fun Consult() {
         Row {
             Text("Consult", fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
             Spacer(modifier = Modifier.weight(1f))
-            Icon(
-                imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
-                contentDescription = "Arrow Backward",
-                tint = AfyaBlue,
-                modifier = Modifier.clickable() {
-                    coroutineScope.launch {
-                        val previousPage = (pagerState.currentPage - 1).coerceAtLeast(0)
-                        pagerState.animateScrollToPage(previousPage)
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(20.dp))
+                    .border(1.dp, AfyaBlue, RoundedCornerShape(20.dp))
+                    .background(color = AfyaBlue.copy(alpha = .2f))
+                    .clickable() {
+                        coroutineScope.launch {
+                            val previousPage = (pagerState.currentPage - 1).coerceAtLeast(0)
+                            pagerState.animateScrollToPage(previousPage)
+                        }
                     }
-                }
-            )
+                    .padding(8.dp)
+            ) {
+
+                Icon(
+                    imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
+                    contentDescription = "Arrow Backward",
+                    tint = AfyaBlue,
+                    modifier = Modifier
+
+                        .size(16.dp)
+                )
+            }
             Spacer(modifier = Modifier.padding(4.dp))
-            Icon(
-                imageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
-                contentDescription = "Arrow Forward",
-                tint = AfyaBlue,
-                modifier = Modifier.clickable() {
-                    coroutineScope.launch {
-                        val nextPage = (pagerState.currentPage + 1).coerceAtMost(doctors.lastIndex-1)
-                        pagerState.animateScrollToPage(nextPage)
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(20.dp))
+                    .border(1.dp, AfyaBlue, RoundedCornerShape(20.dp))
+                    .background(color = AfyaBlue.copy(alpha = .2f))
+                    .clickable() {
+                        coroutineScope.launch {
+                            val nextPage =
+                                (pagerState.currentPage + 1).coerceAtMost(doctors.lastIndex - 1)
+                            pagerState.animateScrollToPage(nextPage)
+                        }
                     }
-                }
-            )
+                    .padding(8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
+                    contentDescription = "Arrow Forward",
+                    tint = AfyaBlue,
+                    modifier = Modifier
+
+                        .size(16.dp)
+                )
+            }
         }
         Spacer(modifier = Modifier.padding(10.dp))
         HorizontalPager(

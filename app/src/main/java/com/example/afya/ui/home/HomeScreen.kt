@@ -23,7 +23,7 @@ fun HomeScreen(navController: NavHostController) {
             .fillMaxSize()
             .background(color = AfyaBackground)
             .padding(20.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(28.dp)
     ) {
         Header()
         QuickHelp(
