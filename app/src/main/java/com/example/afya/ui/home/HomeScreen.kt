@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fitInside
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -29,79 +30,18 @@ import androidx.navigation.compose.rememberNavController
 import com.example.afya.ui.theme.AfyaBlue
 import com.example.afya.ui.theme.AfyaWhite
 import androidx.compose.material3.Icon
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.TextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = AfyaWhite)
-            .padding(20.dp),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp))
-                .background(color = AfyaBlue)
-                .padding(16.dp)
-
-
-        ) {
-            Column {
-                Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically){
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(color = AfyaWhite)
-                            .padding(4.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Rounded.Menu,
-                            contentDescription = "Menu",
-                            tint = AfyaBlue,
-                            modifier = Modifier.size(28.dp)
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Column {
-                        Text(
-                            "Hello!",
-                            color = AfyaWhite,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Text("Hope you are doing well", color = AfyaWhite, fontSize = 12.sp)
-                    }
-                    Spacer(modifier = Modifier.weight(1f))
-                    Row {
-                        Icon(
-                            imageVector = Icons.Rounded.Notifications,
-                            contentDescription = "Menu",
-                            tint = AfyaWhite,
-                            modifier = Modifier.size(28.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Icon(
-                            imageVector = Icons.Rounded.ShoppingCart,
-                            contentDescription = "Menu",
-                            tint = AfyaWhite,
-                            modifier = Modifier.size(28.dp)
-                        )
-                    }
-                }
-//                Box() {
-//                    Text(
-//                        text = "Welcome to Afya!",
-//                        modifier = Modifier.align(Alignment.Center)
-//                    )
-//                }
-            }
-        }
-    }
+   Header()
 }
 
 @Preview
