@@ -13,15 +13,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.afya.ui.theme.AfyaWhite
+import com.example.afya.ui.theme.AfyaBackground
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = AfyaWhite)
+            .background(color = AfyaBackground)
             .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -29,6 +29,7 @@ fun HomeScreen(navController: NavHostController) {
         QuickHelp(
             onNavItemClick = { route -> navController.navigate(route) }
         )
+        Consult()
     }
 }
 

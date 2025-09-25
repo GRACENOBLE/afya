@@ -14,10 +14,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -82,10 +84,11 @@ fun QuickHelp(onNavItemClick: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
             .background(color = AfyaCream)
             .padding(16.dp),
 
-    ) {
+        ) {
         Text(
             "Quick Help",
             color = AfyaDark,
@@ -101,13 +104,16 @@ fun QuickHelp(onNavItemClick: (String) -> Unit) {
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             items(navItems) { navItem ->
-                Column (
+                Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.background(
-                        color = AfyaWhite,
-                    ).clickable(
-                        onClick = { onNavItemClick(navItem.route) },
-                    )
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(
+                            color = AfyaWhite,
+                        )
+                        .clickable(
+                            onClick = { onNavItemClick(navItem.route) },
+                        )
                 ) {
                     Image(
                         painter = painterResource(id = navItem.iconResId),
@@ -130,6 +136,6 @@ fun QuickHelp(onNavItemClick: (String) -> Unit) {
 @Composable
 fun QuickHelpPreview() {
     QuickHelp(
-        onNavItemClick = TODO()
+        onNavItemClick = {}
     )
 }
