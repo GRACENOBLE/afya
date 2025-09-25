@@ -29,7 +29,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,73 +38,67 @@ import com.example.afya.ui.theme.AfyaWhite
 
 @Composable
 fun Header() {
-    Box(
+    Row(
         modifier = Modifier
-            .fillMaxSize()
-            .background(color = AfyaWhite)
-            .padding(20.dp),
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
+            .background(color = AfyaBlue)
+            .padding(16.dp)
+
+
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp))
-                .background(color = AfyaBlue)
-                .padding(16.dp)
-
-
-        ) {
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+        Column {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(color = AfyaWhite)
+                        .padding(4.dp)
                 ) {
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(color = AfyaWhite)
-                            .padding(4.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Rounded.Menu,
-                            contentDescription = "Menu",
-                            tint = AfyaBlue,
-                            modifier = Modifier.size(32.dp)
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(10.dp))
-                    Column {
-                        Text(
-                            "Hello!",
-                            color = AfyaWhite,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Text("Hope you are doing well", color = AfyaWhite, fontSize = 12.sp)
-                    }
-                    Spacer(modifier = Modifier.weight(1f))
-                    Row {
-                        Icon(
-                            imageVector = Icons.Rounded.Notifications,
-                            contentDescription = "Menu",
-                            tint = AfyaWhite,
-                            modifier = Modifier.size(32.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Icon(
-                            imageVector = Icons.Rounded.ShoppingCart,
-                            contentDescription = "Menu",
-                            tint = AfyaWhite,
-                            modifier = Modifier.size(32.dp)
-                        )
-                    }
+                    Icon(
+                        imageVector = Icons.Rounded.Menu,
+                        contentDescription = "Menu",
+                        tint = AfyaBlue,
+                        modifier = Modifier.size(32.dp)
+                    )
                 }
-                Spacer(modifier = Modifier.height(14.dp))
-                Box() {
-                    SearchBar()
+                Spacer(modifier = Modifier.width(10.dp))
+                Column {
+                    Text(
+                        "Hello!",
+                        color = AfyaWhite,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Text("Hope you are doing well", color = AfyaWhite, fontSize = 12.sp)
                 }
+                Spacer(modifier = Modifier.weight(1f))
+                Row {
+                    Icon(
+                        imageVector = Icons.Rounded.Notifications,
+                        contentDescription = "Menu",
+                        tint = AfyaWhite,
+                        modifier = Modifier.size(32.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Icon(
+                        imageVector = Icons.Rounded.ShoppingCart,
+                        contentDescription = "Menu",
+                        tint = AfyaWhite,
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(14.dp))
+            Box {
+                SearchBar()
             }
         }
     }
+
 }
 
 @Composable
@@ -119,7 +112,10 @@ fun SearchBar() {
             focusedBorderColor = Color.Transparent,
             unfocusedBorderColor = Color.Transparent,
             unfocusedContainerColor = AfyaWhite.copy(alpha = 0.5f),
-            focusedContainerColor = AfyaWhite
+            focusedContainerColor = AfyaWhite.copy(alpha = 0.5f),
+            cursorColor = AfyaWhite,
+            focusedTextColor = AfyaWhite,
+            unfocusedTextColor = AfyaWhite
         ),
         modifier = Modifier
             .fillMaxWidth()

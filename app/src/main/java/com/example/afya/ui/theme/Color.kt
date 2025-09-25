@@ -12,3 +12,5 @@ val Pink40 = Color(0xFF7D5260)
 
 val AfyaBlue = Color(0xFF34C6E0)
 val AfyaWhite = Color(0xFFF9F9F9)
+val AfyaCream = Color(0xFFFFFAEE)
+val AfyaDark = Color(0xFF354039)
